@@ -1,0 +1,254 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+body.lighttheme {
+  background-color: white;
+  color: #000 ;
+}
+
+body.darktheme {
+  background-color: black ;
+  color: white ;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+.navbar {
+
+  display: flex;
+  justify-content: space-between; /* Align items to the edges */
+  align-items: center; /* Center items vertically */
+  padding: 10px 20px; /* Add some space around the navbar */
+  
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for effect */
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000; /* Ensure navbar stays above other content */
+  
+}
+
+.navbar .krunalshah a {
+  text-decoration: none;
+  font-size: 1.2em;
+  font-weight: bold;
+
+}
+.center-element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggle-btn {
+  width: 70px;
+  height: 30px;
+  border: 2px solid #333;
+  border-radius: 15px;
+  background-color: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 100px;
+  cursor: pointer;
+  font-size: 1.2em;
+ 
+}
+
+.toggle-btn:hover {
+  opacity: 0.8;
+}
+
+.otherLinks {
+  margin-right: 30px;
+  display: flex;
+  gap: 20px; /* Space between links */
+
+}
+
+.otherLinks a {
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: bold;
+  
+  font-size: 1em;
+  transition: color 0.3s ease;
+}
+body.lighttheme a {
+  color: darkblue; /* Lighter link color for better contrast in dark theme */
+  text-decoration: none;
+}
+body.darktheme a {
+  color: white; /* Lighter link color for better contrast in dark theme */
+  text-decoration: none;
+}
+
+
+.otherLinks a:hover {
+  color: #007bff; /* Change color on hover */
+}
+
+#home{
+  text-decoration: none;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-top: 30px;
+  height: 100vh; /* Full screen height */
+  text-align: center;
+  display: flex;
+  
+  align-items: center;
+}
+
+.leftside {
+  text-align: center;
+  padding: 20px;
+}
+
+.names h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  
+}
+
+.names .highlight {
+  
+  font-weight: bold;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+#resume {
+  
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#resume:hover {
+  background-color: #007bff;
+}
+
+.links img {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px; /* Optional: Add rounded corners */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.links img:hover {
+  transform: scale(1.1); /* Slight zoom-in effect */
+}
+
+.dynamic-text {
+  font-size: 1.8rem;
+  margin-top: 20px;
+  animation: blink 0.7s step-end infinite;
+}
+
+.dynamic-text span {
+  color: #007bff;
+  font-weight: bold;
+}
+
+
+
+#about, #skills, #projects, #experiences {
+  
+  text-decoration: none;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-top: 50px;
+  height: 100vh; /* Full screen height */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#about, #skills, #projects, #experiences {
+  margin: 0; /* Remove extra margins to align sections properly */
+}
+
+.links {
+  display: flex; /* Use Flexbox for alignment */
+  align-items: center; /* Vertically align items */
+  justify-content: space-between; /* Add spacing between items (optional) */
+  gap: 15px; /* Space between icons and button */
+  padding: 10px; /* Optional padding for the container */
+}
+
+.links #resume {
+  font-size: 1em; /* Adjust button font size */
+  padding: 5px 10px; /* Add padding to match icon size */
+}
+
+
+.introduction {
+  height: 80%;
+  width: 80%;
+  
+  position: absolute;
+  
+}
+.aboutme{
+  text-align: left;
+}
+
+.introduction h5 {
+  margin: 10px 0; /* Minimal space between the two h1 tags */
+  font-size: 20px; /* Optional: Adjust font size if needed */
+}
+.introduction h1 {
+  margin: 10px 0; /* Minimal space between the two h1 tags */
+  font-size: 40px; /* Optional: Adjust font size if needed */
+}
+
+.smallintro{
+  margin-bottom: 50px;
+  text-align: left;
+}
+
+.details p {
+  max-width: 800px;
+  margin: 20px 0px;
+  line-height: 1.6;
+  font-size: 16px;
+  text-align: left;
+}
+
+.threeDimages {
+  perspective: 1000px; /* Adds depth perspective */
+  width: 300px;
+  margin: 20px 0px;
+  display: flex;
+  gap: 35px;
+}
+
+.threeDimages img {
+  width: 80%;
+  height: 10%;
+  border-radius: 15px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transform-style: preserve-3d; /* Preserve 3D effect */
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
