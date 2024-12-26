@@ -10,30 +10,26 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo 'Building Docker image...'
-                script {
-                    docker.build('portfolio-app')
-                }
+                sh 'docker build -t portfolio-app .'
             }
         }
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                script {
-                    docker.image('portfolio-app').inside {
-                        sh 'npm install' // Ensure dependencies are installed
-                        sh 'npm test' // Replace this with your actual test command
-                    }
-                }
+                sh '''
+                docker run --rm portfolio-app npm install
+                docker run --rm portfolio-app npm test
+                '''
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying the application...'
-                script {
-                    sh 'docker stop portfolio-app-container || true' // Stop the container if it exists
-                    sh 'docker rm portfolio-app-container || true' // Remove the container if it exists
-                    sh 'docker run --name portfolio-app-container -d -p 80:3000 portfolio-app' // Adjust ports as needed
-                }
+                sh '''
+                docker stop portfolio-app-container || true
+                docker rm portfolio-app-container || true
+                docker run --name portfolio-app-container -d -p 80:3000 portfolio-app
+                '''
             }
         }
     }
