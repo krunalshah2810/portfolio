@@ -20,6 +20,7 @@ pipeline {
                 echo 'Running tests...'
                 script {
                     docker.image('portfolio-app').inside {
+                        sh 'npm install' // Ensure dependencies are installed
                         sh 'npm test' // Replace this with your actual test command
                     }
                 }
@@ -29,7 +30,9 @@ pipeline {
             steps {
                 echo 'Deploying the application...'
                 script {
-                    docker.run('--name portfolio-app-container -d -p 80:80 portfolio-app') // Adjust ports if necessary
+                    sh 'docker stop portfolio-app-container || true' // Stop the container if it exists
+                    sh 'docker rm portfolio-app-container || true' // Remove the container if it exists
+                    sh 'docker run --name portfolio-app-container -d -p 80:3000 portfolio-app' // Adjust ports as needed
                 }
             }
         }
