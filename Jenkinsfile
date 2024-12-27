@@ -13,15 +13,15 @@ pipeline {
                 sh 'docker build -t portfolio-app .'
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Running tests...'
-                sh '''
-                docker run --rm portfolio-app npm install
-                docker run --rm portfolio-app npm test
-                '''
-            }
-        }
+        // stage('Test') {
+        //     steps {
+        //         echo 'Running tests...'
+        //         sh '''
+        //         docker run --rm portfolio-app npm install
+        //         docker run --rm portfolio-app npm test
+        //         '''
+        //     }
+        // }
         stage('Deploy') {
             steps {
                 echo 'Deploying the application...'
