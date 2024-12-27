@@ -1,17 +1,18 @@
-# Use a Node.js base image
 FROM node:14
 
-# Set working directory
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy package.json and install dependencies
+# Copy the package.json and package-lock.json from the client directory
 COPY client/package*.json ./
+
+# Install dependencies
 RUN npm install
 
-# Copy application files
-COPY . .
+# Copy the entire client directory to the container
+COPY client/ ./
 
-# Expose the app's port
+# Expose the port the app runs on
 EXPOSE 3000
 
 # Start the application
